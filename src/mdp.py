@@ -1,4 +1,7 @@
 class MarkovDecisionProcess:
+    """
+    Reference: https://www.youtube.com/watch?v=RlugupBiC6w&list=PLaxOs-8sLebsVKDTIud6mkxKGPDqv1LO2&index=12
+    """
     def __init__(self, states: list, actions: list, transitions: dict, rewards: dict):
         self.states = states
         self.actions = actions
@@ -7,6 +10,10 @@ class MarkovDecisionProcess:
         self.policy = {state: actions[0] for state in states}
 
     def iterate_policy(self):
+        """
+        Iterate the policy until it converges
+        :return:
+        """
         while True:
             old_policy = self.policy.copy()
 
@@ -18,6 +25,10 @@ class MarkovDecisionProcess:
                 break
 
     def evaluate_policy(self):
+        """
+        Evaluate the policy
+        :return:
+        """
         V = {state: 0 for state in self.states}
 
         while True:
@@ -36,6 +47,11 @@ class MarkovDecisionProcess:
         return V
 
     def improve_policy(self, V):
+        """
+        Improve the policy
+        :param V:
+        :return:
+        """
         new_policy = self.policy.copy()
 
         for state in self.states:

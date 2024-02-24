@@ -27,7 +27,6 @@ class FrozenLake:
         self.start = start
         self.goal = goal
 
-        # 4x4 grid. Agent on (0, 0) and goal on (3, 3). Holes (max 3) are randomly placed.
         self.env = self._start_env()
 
         self.graph = self._create_graph()
