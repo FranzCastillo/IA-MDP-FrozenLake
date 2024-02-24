@@ -1,10 +1,13 @@
 class State:
-    def __init__(self, value: tuple):
-        self.value = value
-        self.neighbors = []
-
-    def add_neighbor(self, neighbor):
-        self.neighbors.append(neighbor)
+    def __init__(self, x, y):
+        self.value = (x, y)
+        self.reward = {
+            'up': 0,
+            'down': 0,
+            'left': 0,
+            'right': 0
+        }
+        self.probability = {}
 
     def __repr__(self):
         return f'State{self.value}'

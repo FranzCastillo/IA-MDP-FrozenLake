@@ -1,4 +1,5 @@
 from src.frozen_lake import FrozenLake
+from src.mdp import MarkovDecisionProcess
 
 
 def main():
@@ -7,7 +8,14 @@ def main():
     start = (0, 0)
     goal = (3, 3)
 
-    fl = FrozenLake(env_size, n_holes, start, goal)
+    world = FrozenLake(env_size, n_holes, start, goal)
+
+    states = world.states
+    actions = world.actions
+    P = world.P
+    R = world.rewards
+
+    mdp = MarkovDecisionProcess(states, actions, P, R)
 
 
 if __name__ == "__main__":
