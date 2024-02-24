@@ -21,7 +21,7 @@ class FrozenLake:
     def __init__(self, env_size: int, n_holes: int, start: tuple, goal: tuple):
         np.random.seed(4)
 
-        self.actions = {'up', 'down', 'left', 'right'}
+        self.actions = ['up', 'down', 'left', 'right']
         self.size = env_size
         self.n_holes = n_holes
         self.start = start
@@ -61,6 +61,7 @@ class FrozenLake:
 
     def _create_states(self):
         states = self.graph.keys()
+        states = list(states)
 
         # Create the transition probabilities structure
         probabilities = {}
