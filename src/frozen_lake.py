@@ -1,6 +1,6 @@
 import numpy as np
 
-from src.node import Node
+from src.state import State
 
 
 def print_env(env: list):
@@ -59,16 +59,16 @@ class FrozenLake:
                 if self.env[i][j] == -1:  # Don't add holes to the graph
                     continue
 
-                node = Node((i, j))
+                node = State((i, j))
                 graph[node] = {}
 
                 if i > 0 and self.env[i - 1][j] != -1:  # Up
-                    graph[node]["up"] = Node((i - 1, j))
+                    graph[node]["up"] = State((i - 1, j))
                 if i < self.size - 1 and self.env[i + 1][j] != -1:
-                    graph[node]["down"] = Node((i + 1, j))
+                    graph[node]["down"] = State((i + 1, j))
                 if j > 0 and self.env[i][j - 1] != -1:
-                    graph[node]["left"] = Node((i, j - 1))
+                    graph[node]["left"] = State((i, j - 1))
                 if j < self.size - 1 and self.env[i][j + 1] != -1:
-                    graph[node]["right"] = Node((i, j + 1))
+                    graph[node]["right"] = State((i, j + 1))
 
         return graph

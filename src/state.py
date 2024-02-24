@@ -1,4 +1,4 @@
-class Node:
+class State:
     def __init__(self, value: tuple):
         self.value = value
         self.neighbors = []
@@ -7,10 +7,10 @@ class Node:
         self.neighbors.append(neighbor)
 
     def __repr__(self):
-        return f'Node{self.value}'
+        return f'State{self.value}'
 
     def __str__(self):
-        return f'Node{self.value}'
+        return f'State{self.value}'
 
     def __eq__(self, other):
         return self.value == other.value
