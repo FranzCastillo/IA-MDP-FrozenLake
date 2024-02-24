@@ -3,10 +3,10 @@ from src.mdp import MarkovDecisionProcess
 
 
 def main():
-    env_size = 4
-    n_holes = 3
+    env_size = 10
+    n_holes = 20
     start = (0, 0)
-    goal = (3, 3)
+    goal = (9, 9)
 
     world = FrozenLake(env_size, n_holes, start, goal)
 
@@ -20,7 +20,7 @@ def main():
     mdp.iterate_policy()
 
     optimal_policy = mdp.policy
-    print(optimal_policy)
+    world.show_policy(optimal_policy)
 
 
 if __name__ == "__main__":

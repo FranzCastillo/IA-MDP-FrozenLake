@@ -5,7 +5,6 @@ class MarkovDecisionProcess:
         self.transitions = transitions
         self.rewards = rewards
         self.policy = {state: actions[0] for state in states}
-        eval_policy = self.evaluate_policy()
 
     def iterate_policy(self):
         while True:

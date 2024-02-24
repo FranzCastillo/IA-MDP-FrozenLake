@@ -29,7 +29,6 @@ class FrozenLake:
 
         # 4x4 grid. Agent on (0, 0) and goal on (3, 3). Holes (max 3) are randomly placed.
         self.env = self._start_env()
-        print_env(self.env)
 
         self.graph = self._create_graph()
         self.states, self.P = self._create_states()
@@ -120,3 +119,15 @@ class FrozenLake:
             env[hole[0]][hole[1]] = -1
 
         return env
+
+    def show_policy(self, policy: dict):
+        current_state = self.start
+        while current_state != self.goal:
+            print_env(self.env)
+            action = policy[State(*current_state)]
+            print(f'Optimal Action: {action}')
+            next_state = self.graph[State(*current_state)][action]
+            self.env[current_state[0]][current_state[1]] = 0
+            self.env[next_state[0]][next_state[1]] = 1
+            current_state = next_state
+            print('-----------------')
